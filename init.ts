@@ -14,7 +14,7 @@ export async function initSubmodule() {
   console.log("Initializing git submodule...");
 
   const command = new Deno.Command("git", {
-    args: ["clone", CONFIG.gitSubmoduleUrl, "--depth=1"],
+    args: ["clone", CONFIG.gitSubmoduleUrl],
   });
 
   const { success } = await command.output();
