@@ -1,7 +1,14 @@
 {
   "tasks": {
-    "dev": "deno run -A --watch main.ts",
-    "run": "deno run main.ts"
+    "prepare": "deno run -A init.ts",
+    "dev": {
+      "dependencies": ["prepare"],
+      "command": "deno run -A --watch main.ts"
+    },
+    "run": {
+      "dependencies": ["prepare"],
+      "command": "deno run -A main.ts"
+    }
   },
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.6.12",

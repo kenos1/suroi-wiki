@@ -1,4 +1,4 @@
-import { initClientScripts, initCSS, initSubmodule } from "./init.ts";
+import { initClientScripts, initCSS } from "./init.ts";
 import { Hono } from "@hono/hono"
 import { serveStatic } from "@hono/hono/deno"
 import { logger } from "@hono/hono/logger"
@@ -8,7 +8,7 @@ import { initGameImageUrls } from "./suroi.ts";
 import SearchResults from "./templates/searchResults.ts";
 
 await initGameImageUrls();
-await Promise.all([initSubmodule(), initCSS(), initClientScripts(), generateWikiPages()]);
+await Promise.all([initCSS(), initClientScripts(), generateWikiPages()]);
 
 const app = new Hono({ strict: false });
 
